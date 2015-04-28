@@ -9,7 +9,6 @@ var year = currentDate.getFullYear()
 var today = day+""+month+""+year;
 var time = currentDate.getTime();
 
-
 var HtmlReporter = require('protractor-html-screenshot-reporter');
 var reporter=new HtmlReporter({
   baseDirectory: './protractor-result/'+today+'/run@'+time+"", // a location to store screen shots.
@@ -23,9 +22,10 @@ exports.config = {
   params: require('./appt.json'),
 
   specs: [
-    //'*_Pages.js',
-    'appointment_Pages.js'
-
+    '*_Pages.js'//,
+    //'appointment_Pages.js'//,
+    //'patient_Pages.js'//,
+    //'consultant_Pages.js'
   ],
 
   capabilities: {

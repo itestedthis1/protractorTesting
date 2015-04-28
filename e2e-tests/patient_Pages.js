@@ -39,7 +39,7 @@ describe('Patient listing Page - Search by Attribute', function() {
         searchField.sendKeys('ab');
 
         var NumConsultants =  element.all(by.repeater('patient in viewModel.list'));
-        expect( NumConsultants.count()).toEqual(9);
+        expect( NumConsultants.count()).toEqual(10);
     });
 
     it('should filter by the Search field - abb', function () {
@@ -47,7 +47,24 @@ describe('Patient listing Page - Search by Attribute', function() {
         searchField.sendKeys('abb');
 
         var NumConsultants =  element.all(by.repeater('patient in viewModel.list'));
-        expect( NumConsultants.count()).toEqual(2);
+        expect( NumConsultants.count()).toEqual(1);
+    });
+
+});
+
+
+describe('View Patient appointment - Search by Attribute', function() {
+
+    beforeEach(function() {
+        browser.get('#/Patients');
+    });
+
+    it('should filter and select the patient with the Surname - Ankunding', function () {
+        var searchField = element(by.model('viewModel.query.query'));
+        searchField.sendKeys('Ankunding');
+
+
+
     });
 
 });

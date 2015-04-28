@@ -11,8 +11,7 @@
         "Addr3": "South London",
         "Addr4": "Greater London",
         "Postcode": "L98 L1",
-        "Phone": "2012345678",
-        "Mobile": "07446908710",
+        "Phone": "02012345678",
         "Email ": "itestedthis1+L000001@gmail.com",
         "Pref": "email",
         "SMSnotif": "1",
@@ -23,6 +22,7 @@
         "embassyChoice": "IRISH",
         "insurer": "BUPA",
         "memNo": 564738,
+        "Mobile": 7446908710,
         "authNo": "FULL-245364-DUE",
         "additionalInstruction":"This is for additional information"
     }

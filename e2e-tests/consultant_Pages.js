@@ -60,6 +60,15 @@ describe('Consultant listing Page - Filter by Attributes', function() {
     expect( NumConsultants.count()).toEqual(7);
   });
 
+  it('should filter by male consultants with paediatric privileges', function () {
+    var paediatricField = element(by.model('viewModel.query.gender'));
+    paediatricField.sendKeys('m');
+    var paediatric = element(by.model('viewModel.query.paediatricPrivileges'));
+    paediatric.click();
+
+    var NumConsultants =  element.all(by.repeater('consultant in viewModel.list'));
+    expect( NumConsultants.count()).toEqual(1);
+  });
 
 
 });
