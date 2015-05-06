@@ -15,7 +15,7 @@ describe('To Book an Appointment for a female Consultant with the name of Fiona'
         searchFieldGender.sendKeys('f');
         var searchFieldName = element(by.model('viewModel.query.name'));
         searchFieldName.sendKeys('Fiona');
-        element(by.css('a[href*="#/ViewSessions?consultants=12&date=2015-05-05"]')).click();
+        element(by.css('a[href*="#/ViewSessions?consultants=12&date=2015-05-06"]')).click();
         element(by.css('.fa-chevron-right')).click();
         element(by.css('.fa-chevron-right')).click();
         element(by.css('.fa-chevron-right')).click();
@@ -143,7 +143,7 @@ describe('To book an Appointment for a Male Consultant with Paediatric Privilege
         var paediatric = element(by.model('viewModel.query.paediatricPrivileges'));
         paediatric.click();
 
-        element(by.css('a[href*="#/ViewSessions?consultants=16&date=2015-05-05"]')).click();
+        element(by.css('a[href*="#/ViewSessions?consultants=16&date=2015-05-06"]')).click();
         element(by.css('.fa-chevron-right')).click();
         element(by.css('.fa-chevron-right')).click();
         element(by.css('.fa-chevron-right')).click();

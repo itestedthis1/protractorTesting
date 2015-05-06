@@ -23,9 +23,10 @@ exports.config = {
 
   specs: [
     //'*_Pages.js'//,
-    'appointment_Pages.js'//,
+    //'appointment_Pages.js'//,
     //'patient_Pages.js'//,
     //'consultant_Pages.js'
+    'viewAppointment.js'
   ],
 
   capabilities: {

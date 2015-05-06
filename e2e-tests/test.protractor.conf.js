@@ -22,10 +22,11 @@ exports.config = {
   params: require('./appt.json'),
 
   specs: [
-    '*_Pages.js'//,
+    //'*_Pages.js'//,
     //'appointment_Pages.js'//,
     //'patient_Pages.js'//,
     //'consultant_Pages.js'
+    'viewAppointment.js'
   ],
 
   capabilities: {
