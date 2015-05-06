@@ -32,6 +32,7 @@ exports.config = {
     'browserName': 'chrome'
   },
 
+
   baseUrl: 'http://lcdevapp01:81/',
 
   framework: 'jasmine',
