@@ -6,14 +6,14 @@ var currentDate = new Date()
 var day = currentDate.getDate()
 var month = currentDate.getMonth() + 1
 var year = currentDate.getFullYear()
-var today = day+""+month+""+year;
+var today = day+"-"+month+"-"+year;
 var time = currentDate.getTime();
 
 var HtmlReporter = require('protractor-html-screenshot-reporter');
 var reporter=new HtmlReporter({
-  baseDirectory: './protractor-result/'+today+'/run@'+time+"", // a location to store screen shots.
+  baseDirectory: './protractor-result/test'+today+'/run@'+time+"", // a location to store screen shots.
   docTitle: 'The London Clinic - CIS Reporter',
-  docName:  'CIS-Autotest-report.html'
+  docName:  'TEST: CIS-Autotest-report.html'
 });
 
 exports.config = {
@@ -22,8 +22,8 @@ exports.config = {
   params: require('./appt.json'),
 
   specs: [
-    //'*_Pages.js'//,
-    'appointment_Pages.js'//,
+    '*_Pages.js'//,
+    //'appointment_Pages.js'//,
     //'patient_Pages.js'//,
     //'consultant_Pages.js'
   ],
@@ -32,7 +32,7 @@ exports.config = {
     'browserName': 'chrome'
   },
 
-  baseUrl: 'http://lcdevapp01/',
+  baseUrl: 'http://lcdevapp01:81/',
 
   framework: 'jasmine',
 

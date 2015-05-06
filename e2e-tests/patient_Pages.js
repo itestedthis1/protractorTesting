@@ -47,7 +47,7 @@ describe('Patient listing Page - Search by Attribute', function() {
         searchField.sendKeys('abb');
 
         var NumConsultants =  element.all(by.repeater('patient in viewModel.list'));
-        expect( NumConsultants.count()).toEqual(1);
+        expect( NumConsultants.count()).toEqual(9);
     });
 
 });

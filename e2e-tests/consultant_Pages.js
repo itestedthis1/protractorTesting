@@ -71,4 +71,26 @@ describe('Consultant listing Page - Filter by Attributes', function() {
   });
 
 
+  it('should filter by male consultants with Monday clinic', function () {
+    var paediatricField = element(by.model('viewModel.query.gender'));
+    paediatricField.sendKeys('m');
+
+    var clinicDays = element(by.css('body > div > div > div > div > ng-view > div > div > div:nth-child(2) > form > div.col-md-4.col-sm-4 > div > div > div:nth-child(1) > div.btn.btn-success'));
+    clinicDays.click();
+
+    var NumConsultants =  element.all(by.repeater('consultant in viewModel.list'));
+    expect( NumConsultants.count()).toEqual(4);
+  });
+
+  it('should filter by female consultants with Thursday clinic', function () {
+    var paediatricField = element(by.model('viewModel.query.gender'));
+    paediatricField.sendKeys('f');
+
+    var clinicDays = element(by.css('body > div > div > div > div > ng-view > div > div > div:nth-child(2) > form > div.col-md-4.col-sm-4 > div > div > div:nth-child(4) > div.btn.btn-success'));
+    clinicDays.click();
+
+    var NumConsultants =  element.all(by.repeater('consultant in viewModel.list'));
+    expect( NumConsultants.count()).toEqual(0);
+  });
+
 });

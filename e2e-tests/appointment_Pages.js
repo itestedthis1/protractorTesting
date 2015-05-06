@@ -2,7 +2,7 @@
 
 var params = browser.params;
 
-describe('To Book an Appointment for a female Consultant with surname of Das', function() {
+describe('To Book an Appointment for a female Consultant with the name of Fiona', function() {
 
     it('should show title of My ASP.NET Application', function() {
         browser.get('#/Consultants');
@@ -10,20 +10,23 @@ describe('To Book an Appointment for a female Consultant with surname of Das', f
         expect(browser.getTitle()).toEqual("The London Clinic - Consultant Information System");
     });
 
-    it('should navigate to the consultant "Female" "Das" appoints page', function(){
+    it('should navigate to the consultant "Female" "Fiona" appoints page', function(){
         var searchFieldGender = element(by.model('viewModel.query.gender'));
         searchFieldGender.sendKeys('f');
         var searchFieldName = element(by.model('viewModel.query.name'));
-        searchFieldName.sendKeys('Das');
-        element(by.css('a[href*="#/ViewSessions?consultants=13&date=2015-04-28"]')).click();
+        searchFieldName.sendKeys('Fiona');
+        element(by.css('a[href*="#/ViewSessions?consultants=12&date=2015-05-05"]')).click();
+        element(by.css('.fa-chevron-right')).click();
+        element(by.css('.fa-chevron-right')).click();
         element(by.css('.fa-chevron-right')).click();
         element(by.css('.fa-chevron-right')).click();
         element(by.css('[ng-show="appointment.available"]')).click();
+        browser.sleep(6000);
 
         var title = element(by.css('.windows h3'));
         var consultant = element(by.xpath('/html/body/div/div/div/div/ng-view/div/div/div[1]/div/div[2]/div/a/div/h3'));
         expect(title.getText()).toEqual('Create New Appointment');
-        expect(consultant.getText()).toEqual('Das, Lisa');
+        expect(consultant.getText()).toEqual('Arnold, Fiona');
     })
 
     it('should accept Patient Name details', function () {
@@ -31,17 +34,16 @@ describe('To Book an Appointment for a female Consultant with surname of Das', f
         var patientFname = element(by.model('patient.firstName'));
         var patientLname = element(by.model('patient.lastName'));
         var patientLnumber = element(by.model('patient.patientUnitNumber'));
-        var patientGender = element(by.model('modelState.patient_Gender'));
-        var patientDoB = element(by.model('patient.dateOfBirth'));
+        var patientGender = element(by.css('body > div > div > div > div > ng-view > div > div > div.panel-body > form > div:nth-child(2) > div:nth-child(3) > div.col-md-6 > div > div.radio.radio-complete > div.inline > label'));
+        var patientDoB = element(by.css('body > div > div > div > div > ng-view > div > div > div.panel-body > form > div:nth-child(2) > div:nth-child(3) > div:nth-child(2) > div > date-of-birth > div > input'));
 
         patientTitle.sendKeys(params.patient.title);
         patientFname.sendKeys(params.patient.first);
         patientLname.sendKeys(params.patient.last);
         patientLnumber.sendKeys(params.patient.L_number);
-        browser.sleep(6000);
-
-        element.all(by.model('color.name')).get(0).click();
-        browser.sleep(6000);
+        patientDoB.sendKeys(params.patient.DoB);
+        patientGender.click();
+        browser.sleep(1000);
 
         var patientAddr1 = element(by.model('address.address1'));
         var patientAddr2 = element(by.model('address.address2'));
@@ -64,6 +66,7 @@ describe('To Book an Appointment for a female Consultant with surname of Das', f
         patientEmail.sendKeys(params.patient.Email);
         patientContPref.sendKeys(params.patient.Pref);
         patientSMSnotif.click();
+        browser.sleep(1000);
 
        //OTHER DETAILS
         var referringDoctor = element(by.model('other.referringDoctor'));
@@ -78,7 +81,6 @@ describe('To Book an Appointment for a female Consultant with surname of Das', f
         var indMemNum = element(by.name('MembershipNumber'));
         var indAuthNum = element(by.name('AuthorisationCode'));
 
-        browser.sleep(6000);
         element.all(by.model('other.fundingType')).get(funding).click();
 
         element.all(by.model('other.fundingType')).get(funding).click();
@@ -112,8 +114,17 @@ describe('To Book an Appointment for a female Consultant with surname of Das', f
         }
 
         element(by.css('.btn-success')).click();
-        browser.sleep(60000);
-        //expect(element(by.property(modelState.patient_Gender)).text()).toEqual('Is Required');
+        //
+        browser.sleep(10000);
+        //var successPopup = element(by.id('modalSlideUpSmall'));
+        //
+        ////var successMsg = element(by.css('#modalSlideUpSmall > div > div > div > div > h4'));
+        ////var successBtn =
+        //successPopup(by.css('div > div > div > div > button')).click();
+        //
+        //
+        ////expect(successMsg.text()).toEqual('Success');
+        //successBtn.click();
     });
 });
 
@@ -132,15 +143,19 @@ describe('To book an Appointment for a Male Consultant with Paediatric Privilege
         var paediatric = element(by.model('viewModel.query.paediatricPrivileges'));
         paediatric.click();
 
-        element(by.css('a[href*="#/ViewSessions?consultants=16&date=2015-04-28"]')).click();
+        element(by.css('a[href*="#/ViewSessions?consultants=16&date=2015-05-05"]')).click();
+        element(by.css('.fa-chevron-right')).click();
+        element(by.css('.fa-chevron-right')).click();
         element(by.css('.fa-chevron-right')).click();
         element(by.css('.fa-chevron-right')).click();
         element(by.css('[ng-show="appointment.available"]')).click();
+        browser.sleep(6000);
 
         var title = element(by.css('.windows h3'));
         var consultant = element(by.xpath('/html/body/div/div/div/div/ng-view/div/div/div[1]/div/div[2]/div/a/div/h3'));
         expect(title.getText()).toEqual('Create New Appointment');
         expect(consultant.getText()).toEqual('Bashir, Saqib');
+        browser.sleep(6000);
     })
 
     it('should accept Patient Name details', function () {
@@ -148,19 +163,18 @@ describe('To book an Appointment for a Male Consultant with Paediatric Privilege
         var patientFname = element(by.model('patient.firstName'));
         var patientLname = element(by.model('patient.lastName'));
         var patientLnumber = element(by.model('patient.patientUnitNumber'));
-        var patientGender = element(by.xpath('//*[@id="male"]'));
-        var patientDoB = element(by.model('patient.dateOfBirth'));
+        var patientGender = element(by.css('body > div > div > div > div > ng-view > div > div > div.panel-body > form > div:nth-child(2) > div:nth-child(3) > div.col-md-6 > div > div.radio.radio-complete > div.inline > label'));
+        var patientDoB = element(by.css('body > div > div > div > div > ng-view > div > div > div.panel-body > form > div:nth-child(2) > div:nth-child(3) > div:nth-child(2) > div > date-of-birth > div > input'));
 
         patientTitle.sendKeys(params.patient.title);
         patientFname.sendKeys(params.patient.first);
         patientLname.sendKeys(params.patient.last);
         patientLnumber.sendKeys(params.patient.L_number);
-        //patientDoB.sendKeys(params.patient.DoB);
+        patientDoB.sendKeys(params.patient.DoB);
         patientGender.click();
-        browser.sleep(6000);
+        browser.sleep(1000);
 
         //element.all(by.class('radio-complete')).get(0).click();
-        //browser.sleep(6000);
 
         var patientAddr1 = element(by.model('address.address1'));
         var patientAddr2 = element(by.model('address.address2'));
@@ -183,6 +197,7 @@ describe('To book an Appointment for a Male Consultant with Paediatric Privilege
         patientEmail.sendKeys(params.patient.Email);
         patientContPref.sendKeys(params.patient.Pref);
         patientSMSnotif.click();
+        browser.sleep(1000);
 
         //OTHER DETAILS
         var referringDoctor = element(by.model('other.referringDoctor'));
@@ -199,7 +214,6 @@ describe('To book an Appointment for a Male Consultant with Paediatric Privilege
 
         browser.sleep(6000);
         element.all(by.model('other.fundingType')).get(funding).click();
-
         element.all(by.model('other.fundingType')).get(funding).click();
 
         if(funding == 2){
@@ -231,7 +245,16 @@ describe('To book an Appointment for a Male Consultant with Paediatric Privilege
         }
 
         element(by.css('.btn-success')).click();
+        //
+        browser.sleep(10000);
+        //if( element(by.css('#modalSlideUpSmall > div > div > div > div').isDisplayed())){
+        //    var successMsg = element(by.css('#modalSlideUpSmall > div > div > div > div > h4'));
+        //    var successBtn = element(by.css('#modalSlideUpSmall > div > div > div > div > button'));
+        //
+        //    expect(successMsg.text()).toEqual('Success');
+        //    //successBtn.click();
+        //}
 
-        browser.sleep(60000);
     });
+
 });
