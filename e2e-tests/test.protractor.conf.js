@@ -11,9 +11,9 @@ var time = currentDate.getTime();
 
 var HtmlReporter = require('protractor-html-screenshot-reporter');
 var reporter=new HtmlReporter({
-  baseDirectory: './protractor-result/test'+today+'/run@'+time+"", // a location to store screen shots.
+  baseDirectory: './protractor-result/test_'+today+'/run@'+time+"", // a location to store screen shots.
   docTitle: 'The London Clinic - CIS Reporter',
-  docName:  'TEST: CIS-Autotest-report.html'
+  docName:  'TEST_CIS-Autotest-report.html'
 });
 
 exports.config = {
@@ -23,15 +23,17 @@ exports.config = {
 
   specs: [
     //'*_Pages.js'//,
-    //'appointment_Pages.js'//,
+    'appointment_Pages.js'//,
     //'patient_Pages.js'//,
     //'consultant_Pages.js'
-    'viewAppointment.js'
+    //'viewAppointment.js'
   ],
 
-  capabilities: {
+  multiCapabilities: [{
     'browserName': 'chrome'
-  },
+  }, {
+    'browserName': 'firefox'
+  }],
 
 
   baseUrl: 'http://lcdevapp01:81/',
