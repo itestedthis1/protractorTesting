@@ -55,7 +55,6 @@
 //        expect(btnPatient.isDisplayed()).toBe(true);
 //        expect(btnSubmit.isDisplayed()).toBe(true);
 //        btnSubmit.click();
-//
 //    });
 //
 //    it('should produce a model confirmation', function(){
