@@ -31,12 +31,12 @@ exports.config = {
 
   seleniumArgs: ['-Dwebdriver.ie.driver=C:/DevTools/protractorFiles/IEDriverServer_x64_2.45.0/IEDriverServer.exe'],
   multiCapabilities: [
-    //{
-    //    'browserName': 'chrome'
-    //},
-    //{
-    //    'browserName': 'firefox'
-    //},
+    {
+        'browserName': 'chrome'
+    },
+    {
+        'browserName': 'firefox'
+    },
     {
         'browserName': 'internet explorer'
     }
