@@ -32,17 +32,17 @@ describe('Patient listing Page - Search by Attribute', function() {
         browser.get('#/Patients');
     });
 
-    it('should filter by the Search field - ab', function () {
+    it('should filter by the Search field - Bar', function () {
         var searchField = element(by.model('viewModel.query.query'));
-        searchField.sendKeys('bar');
+        searchField.sendKeys('Bar');
 
         var NumConsultants =  element.all(by.repeater('patient in viewModel.list'));
         expect( NumConsultants.count()).toEqual(9);
     });
 
-    it('should filter by the Search field - abb', function () {
+    it('should filter by the Search field - Bart', function () {
         var searchField = element(by.model('viewModel.query.query'));
-        searchField.sendKeys('bart');
+        searchField.sendKeys('Bart');
 
         var NumConsultants =  element.all(by.repeater('patient in viewModel.list'));
         expect( NumConsultants.count()).toEqual(4);
@@ -58,6 +58,9 @@ describe('View Patient appointment - Search by Attribute', function() {
 
     it('should filter and select the patient with the Surname - Ankunding', function () {
         var searchField = element(by.model('viewModel.query.query'));
-        searchField.sendKeys('Ankunding');
+        searchField.sendKeys('Ankun');
+
+        var NumConsultants =  element.all(by.repeater('patient in viewModel.list'));
+        expect( NumConsultants.count()).toEqual(1);
     });
 });

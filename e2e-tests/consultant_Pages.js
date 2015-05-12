@@ -3,6 +3,7 @@
 describe('Consultant Details Page', function() {
 
   beforeEach(function() {
+    browser.executeScript("document.body.style.zoom='90%';");
     browser.get('#/Consultants/Details/1');
   });
 
@@ -14,9 +15,9 @@ describe('Consultant Details Page', function() {
 describe('Consultant listing Page', function() {
 
   beforeEach(function() {
+    browser.executeScript("document.body.style.zoom='90%';");
     browser.get('#/Consultants');
   });
-
 
   it('should show title of "The London Clinic - Consultant Information System"', function() {
     expect(browser.getTitle()).toEqual("The London Clinic - Consultant Information System");
@@ -32,6 +33,7 @@ describe('Consultant listing Page', function() {
 describe('Consultant listing Page - Filter by Attributes', function() {
 
   beforeEach(function() {
+    browser.executeScript("document.body.style.zoom='90%';");
     browser.get('#/Consultants');
   });
 
@@ -68,7 +70,6 @@ describe('Consultant listing Page - Filter by Attributes', function() {
     var NumConsultants =  element.all(by.repeater('consultant in viewModel.list'));
     expect( NumConsultants.count()).toEqual(1);
   });
-
 
   it('should filter by male consultants with Monday clinic', function () {
     var paediatricField = element(by.model('viewModel.query.gender'));

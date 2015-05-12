@@ -8,7 +8,6 @@ var month = currentDate.getMonth() + 1
 var year = currentDate.getFullYear()
 var today = day+"-"+month+"-"+year;
 var time = currentDate.getTime();
-
 var HtmlReporter = require('protractor-html-screenshot-reporter');
 var reporter=new HtmlReporter({
   baseDirectory: './protractor-result/test_'+today+'/run@'+time+"", // a location to store screen shots.
@@ -22,28 +21,31 @@ exports.config = {
   params: require('./appt.json'),
 
   specs: [
-    //'*_Pages.js'//,
+    '*_Pages.js'//,
     //'appointment_Pages.js'//,
-    //'patient_Pages.js'//,
-    'consultant_Pages.js'
+    //'patient_Pages.js'
+    //'consultant_Pages.js'
     //'viewAppointment.js'
   ],
 
-  seleniumArgs: ['-Dwebdriver.ie.driver=C:/DevTools/protractorFiles/IEDriverServer_x64_2.45.0/IEDriverServer.exe'],
+  seleniumArgs: ['-Dwebdriver.ie.driver=C:/Users/C.Moore-Hill/AppData/Roaming/npm/node_modules/protractor/selenium/IEDriverServer.exe'],
+
   multiCapabilities: [
     {
         'browserName': 'chrome'
-    },
-    {
-        'browserName': 'firefox'
-    },
-    {
-        'browserName': 'internet explorer'
+    //},
+    //{
+    //    'browserName': 'firefox'
+    //},
+    //{
+    //  'browserName': 'internet explorer',
+    //  "ignoreZoomSetting": true
     }
   ],
 
 
   baseUrl: 'http://lcdevapp01:81/',
+
 
   framework: 'jasmine',
 

@@ -6,7 +6,6 @@
 var viewAppt = require('./PageObjects/AppointmentPage.js');
 var util = require('./PageObjects/Util.js');
 
-
 describe('To view an Appointment', function() {
 
     it('should show title of "The London Clinic - Consultant Information System"', function() {
@@ -27,7 +26,6 @@ describe('To view an Appointment', function() {
     //    expect("13:00 - 13:15").toEqual(viewAppt.AppointmentTime.getText());
     //});
 });
-
 
 describe('To Edit an Appointment', function() {
     //
@@ -68,7 +66,6 @@ describe('To Edit an Appointment', function() {
         expect(viewAppt.AppointmentTitleText.getText()).toBe('The Appointment Title');
     });
 
-
     it('should allow the adding of a note',function(){
         console.log('Start adding note and save');
         var EC = protractor.ExpectedConditions;
@@ -90,7 +87,6 @@ describe('To Edit an Appointment', function() {
         viewAppt.NoteText.sendKeys('This is the message !!');
         viewAppt.NoteCancel.click();
     });
-
 
     it('should allow the cancelling of funding editing without saving',function(){
         console.log('Start editing funding to cancel');
@@ -145,9 +141,5 @@ describe('To Edit an Appointment', function() {
         browser.sleep(5000);
         viewAppt.FundingOk.click();
     });
-
 });
-
-
-
 
