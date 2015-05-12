@@ -20,6 +20,7 @@ describe('To Book an Appointment for a female Consultant with the name of Fiona 
         element(by.css('.fa-chevron-right')).click();
         element(by.css('.fa-chevron-right')).click();
         element(by.css('.fa-chevron-right')).click();
+        element(by.css('.fa-chevron-right')).click();
         element(by.css('[ng-show="appointment.available"]')).click();
         browser.sleep(6000);
 

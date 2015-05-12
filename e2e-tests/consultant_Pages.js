@@ -1,16 +1,15 @@
 'use strict';
 
-  describe('Consultant Details Page', function() {
+describe('Consultant Details Page', function() {
 
-    beforeEach(function() {
-      browser.get('#/Consultants/Details/1');
-    });
+  beforeEach(function() {
+    browser.get('#/Consultants/Details/1');
+  });
 
-    it('should show title', function() {
-      expect(browser.getTitle()).toEqual("The London Clinic - Consultant Information System");
-    });
+  it('should show title', function() {
+    expect(browser.getTitle()).toEqual("The London Clinic - Consultant Information System");
+  });
 });
-
 
 describe('Consultant listing Page', function() {
 
@@ -19,12 +18,12 @@ describe('Consultant listing Page', function() {
   });
 
 
-  it('should show title of My ASP.NET Application', function() {
+  it('should show title of "The London Clinic - Consultant Information System"', function() {
     expect(browser.getTitle()).toEqual("The London Clinic - Consultant Information System");
   });
 
   it('should have a listing of 10 consultants', function(){
-    var NumConsultants =  element.all(by.repeater('consultant in viewModel.list'));
+      var NumConsultants =  element.all(by.repeater('consultant in viewModel.list'));
       expect( NumConsultants.count()).toEqual(10);
   });
 
