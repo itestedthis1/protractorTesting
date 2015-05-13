@@ -32,17 +32,16 @@ exports.config = {
 
   multiCapabilities: [
     {
-        //'browserName': 'chrome'
+        'browserName': 'chrome'
     //},
     //{
     //    'browserName': 'firefox'
     //},
     //{
-      'browserName': 'internet explorer',
-      "ignoreZoomSetting": true
+    //  'browserName': 'internet explorer',
+    //  "ignoreZoomSetting": true
     }
   ],
-
 
   baseUrl: 'http://lcdevapp01:81',
 
