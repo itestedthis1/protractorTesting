@@ -19,8 +19,8 @@ var AppointmentSearch = function(){
 
 // ACTIONS //
     this.Reschedule = element(by.css('[ng-click="viewModel.onReschedule"]'));
-    this.ChangeConsultant = element(by.css('[ng-click="viewModel.changeConsultant"]'));
-    this.ChangeRoom = element(by.css('[ng-click="viewModel.changeRoom"]'));
+    this.ChangeConsultant = element(by.css('body > div > div > div > div > ng-view > div > tlc-item > div > div:nth-child(2) > div > div.panel.panel-default > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div > div > div > div > div > div.col-md-3 > div > a'));
+    this.ChangeRoom = element(by.css('body > div > div > div > div > ng-view > div > tlc-item > div > div:nth-child(2) > div > div.panel.panel-default > div:nth-child(1) > div:nth-child(1) > div:nth-child(2) > div > div > div > div > div > div.col-md-3 > div > a'));
     this.EditTitle = element(by.css('[ng-click="viewModel.onEditTitle()"]'));
     this.ChangeFunding = element(by.css('body > div.page-container > div > div > div > ng-view > div > tlc-item > div > div:nth-child(2) > div > div.panel.panel-default > div:nth-child(1) > div:nth-child(2) > div > div > div > div > div > a > i'));
 
@@ -44,14 +44,15 @@ var AppointmentSearch = function(){
     this.EditFunding = element(by.css('[ng-click="viewModel.onChangeFunding()"]'));
     this.FundingHeader = element(by.css('body > div.modal.fade.ng-isolate-scope.slide-up.disable-scroll.in > div > div > div.modal-header.ng-scope > h4'));
 
-    this.SelectEmbFunding = function(){element(by.class('.modal-body .ng-scope')).all(by.name('fundingType')).get(2).click();};
+    this.SelectSelfFunding = element(by.css('body > div.modal.fade.ng-isolate-scope.slide-up.disable-scroll.in > div > div > div.modal-body.ng-scope > div > div.form-group.form-group-default > div:nth-child(4) > input'));
     this.SelectEmbFunding = function(){element.all(by.name('fundingType')).get(1).click();};
     this.SelectInsFunding = function(){element.all(by.name('fundingType')).get(0).click();};
     this.FundingOk = element(by.css('[ng-click="save()"]'));
     this.FundingCancel = element(by.css('[ng-click="cancel()"]'));
 
+    this.SendFailed = element(by.css('#modalSlideUpSmall > div > div > div > div > h4')).text() == "Send Failed";
+    element(by.css('#modalSlideUpSmall > div > div > div > div > button'));
+
 };
 
 module.exports = new AppointmentSearch();
-
-

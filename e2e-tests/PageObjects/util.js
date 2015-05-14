@@ -8,6 +8,9 @@ var Util = function(){
     this.getPage = function(uriRef) {return browser.get(uriRef);};
     this.getTitle = function() {return browser.getTitle();};
 
+    this.winks1 = 1000;
+    this.winks5 = 5000;
+    this.winks10 = 10000;
 
     this.dayEnum = {
         mon: 1,

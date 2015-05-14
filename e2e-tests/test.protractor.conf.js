@@ -21,11 +21,12 @@ exports.config = {
   params: require('./appt.json'),
 
   specs: [
-    '*_Pages.js'//,
+    //'*_Pages.js'//,
     //'appointment_Pages.js'//,
     //'patient_Pages.js'
     //'consultant_Pages.js'
-    //'viewAppointment.js'
+    'Booking_Pages.js'
+    //'viewAppointment_Pages.js'
   ],
 
   seleniumArgs: ['-Dwebdriver.ie.driver=C:/Users/C.Moore-Hill/AppData/Roaming/npm/node_modules/protractor/selenium/IEDriverServer.exe'],
@@ -49,7 +50,7 @@ exports.config = {
 
   jasmineNodeOpts: {
     showColors: true,
-    defaultTimeoutInterval: 3000
+    defaultTimeoutInterval: 11000
   },
 
   onPrepare: function() {

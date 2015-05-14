@@ -41,10 +41,10 @@ describe('To Edit an Appointment', function() {
         expect(viewAppt.EditTitle.isDisplayed()).toBe(true);
         expect(viewAppt.ChangeFunding.isDisplayed()).toBe(true);
         expect(viewAppt.Reschedule.isDisplayed()).toBe(true);
-        expect("687.732.0470 x1087").toEqual("687.732.0470 x1087");
+        //expect("687.732.0470 x1087").toEqual("687.732.0470 x1087");
         //Buttons
-        //expect(viewAppt.ChangeRoom.isDisplayed()).toBe(true);
-        //expect(viewAppt.ChangeConsultant.isDisplayed()).toBe(true);
+        expect(viewAppt.ChangeRoom.isDisplayed()).toBe(true);
+        expect(viewAppt.ChangeConsultant.isDisplayed()).toBe(true);
     });
 
     it('should allow the editing of the appointment Title',function(){
@@ -141,5 +141,6 @@ describe('To Edit an Appointment', function() {
         browser.sleep(5000);
         viewAppt.FundingOk.click();
     });
+
 });
 
