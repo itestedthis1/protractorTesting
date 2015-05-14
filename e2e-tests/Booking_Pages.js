@@ -2,10 +2,8 @@
 * Created by c.moore-hill on 14/05/2015.
 */
 
-
 'use strict';
 var util = require('./PageObjects/Util.js');
-
 var params = browser.params;
 
 describe('To Book an Appointment for an  Existing Patient', function() {
