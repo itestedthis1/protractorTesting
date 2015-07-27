@@ -44,15 +44,17 @@ var AppointmentSearch = function(){
     this.EditFunding = element(by.css('[ng-click="viewModel.onChangeFunding()"]'));
     this.FundingHeader = element(by.css('body > div.modal.fade.ng-isolate-scope.slide-up.disable-scroll.in > div > div > div.modal-header.ng-scope > h4'));
 
-    this.SelectSelfFunding = element(by.css('body > div.modal.fade.ng-isolate-scope.slide-up.disable-scroll.in > div > div > div.modal-body.ng-scope > div > div.form-group.form-group-default > div:nth-child(4) > input'));
-    this.SelectEmbFunding = function(){element.all(by.name('fundingType')).get(1).click();};
-    this.SelectInsFunding = function(){element.all(by.name('fundingType')).get(0).click();};
+
+
+
+    this.SelectSelfFunding = element.all(by.name('fundingType')).get(0);
+    this.SelectEmbFunding = element.all(by.name('fundingType')).get(0);
+    this.SelectInsFunding = element.all(by.name('fundingType')).get(0);
     this.FundingOk = element(by.css('[ng-click="save()"]'));
     this.FundingCancel = element(by.css('[ng-click="cancel()"]'));
 
-    this.SendFailed = element(by.css('#modalSlideUpSmall > div > div > div > div > h4')).text() == "Send Failed";
-    element(by.css('#modalSlideUpSmall > div > div > div > div > button'));
-
+    //this.SendFailed = element(by.css('#modalSlideUpSmall > div > div > div > div > h4')).text() == "Send Failed";
+    //element(by.css('#modalSlideUpSmall > div > div > div > div > button'));
 };
 
 module.exports = new AppointmentSearch();

@@ -2,9 +2,24 @@
  * Created by c.moore-hill on 06/05/2015.
  */
 
-
+'use strict';
 var viewAppt = require('./PageObjects/AppointmentPage.js');
 var util = require('./PageObjects/Util.js');
+
+
+describe('Patient details Page', function() {
+
+    beforeEach(function() {
+        browser.get('#/Appointments/Details/174');
+    });
+
+    it('should show title of "The London Clinic - Consultant Information System"', function() {
+        expect(browser.getTitle()).toEqual("The London Clinic - Consultant Information System");
+    });
+});
+
+
+
 
 
 describe('To view an Appointment', function() {
@@ -45,8 +60,8 @@ describe('To Edit an Appointment', function() {
         expect(viewAppt.Reschedule.isDisplayed()).toBe(true);
         expect("687.732.0470 x1087").toEqual("687.732.0470 x1087");
         //Buttons
-        expect(viewAppt.ChangeRoom.isDisplayed()).toBe(true);
-        expect(viewAppt.ChangeConsultant.isDisplayed()).toBe(true);
+        //expect(viewAppt.ChangeRoom.isDisplayed()).toBe(true);
+        //expect(viewAppt.ChangeConsultant.isDisplayed()).toBe(true);
     });
 
     it('should allow the editing of the appointment Title',function(){
@@ -113,27 +128,27 @@ describe('To Edit an Appointment', function() {
         viewAppt.FundingOk.click();
     });
 
-    it('should allow the saving of funding changes - Self funding',function(){
-        console.log('Start  editing funding Self');
-        var EC = protractor.ExpectedConditions;
-        viewAppt.EditFunding.click();
-        browser.waitForAngular();
-        browser.wait( EC.visibilityOf(viewAppt.FundingHeader), 5000);
-        viewAppt.SelectSelfFunding.select();
-        browser.sleep(1000);
-        viewAppt.FundingOk.click();
-    });
+    //it('should allow the saving of funding changes - Self funding',function(){
+    //    console.log('Start  editing funding Self');
+    //    var EC = protractor.ExpectedConditions;
+    //    viewAppt.EditFunding.click();
+    //    browser.waitForAngular();
+    //    browser.wait( EC.visibilityOf(viewAppt.FundingHeader), 5000);
+    //    viewAppt.SelectSelfFunding.select();
+    //    browser.sleep(1000);
+    //    viewAppt.FundingOk.click();
+    //});
 
-    it('should allow the saving of funding changes - Embassy funding',function(){
-        console.log('Start  editing funding Embassy');
-        var EC = protractor.ExpectedConditions;
-        viewAppt.EditFunding.click();
-        browser.waitForAngular();
-        browser.wait( EC.visibilityOf(viewAppt.FundingHeader), 5000);
-        viewAppt.SelectEmbFunding();
-        browser.sleep(1000);
-        viewAppt.FundingOk.click();
-    });
+    //it('should allow the saving of funding changes - Embassy funding',function(){
+    //    console.log('Start  editing funding Embassy');
+    //    var EC = protractor.ExpectedConditions;
+    //    viewAppt.EditFunding.click();
+    //    browser.waitForAngular();
+    //    browser.wait( EC.visibilityOf(viewAppt.FundingHeader), 5000);
+    //    viewAppt.SelectEmbFunding();
+    //    browser.sleep(1000);
+    //    viewAppt.FundingOk.click();
+    //});
 
     it('should NOT allow the saving of funding changes - Insurance funding',function(){
         console.log('Start  editing funding Insurance');
@@ -141,22 +156,22 @@ describe('To Edit an Appointment', function() {
         viewAppt.EditFunding.click();
         browser.waitForAngular();
         browser.wait( EC.visibilityOf(viewAppt.FundingHeader), 5000);
-        viewAppt.SelectInsFunding();
-        browser.sleep(5000);
+        viewAppt.SelectInsFunding.click();
+        browser.sleep(1000);
         viewAppt.FundingOk.click();
-        browser.sleep(5000);
+        browser.sleep(1000);
         expect(viewAppt.SendFailed).toBe(true);
     });
-
-    it('should allow the saving of funding changes - Insurance funding',function(){
-        console.log('Start  editing funding Insurance');
-        var EC = protractor.ExpectedConditions;
-        viewAppt.EditFunding.click();
-        browser.waitForAngular();
-        browser.wait( EC.visibilityOf(viewAppt.FundingHeader), 5000);
-        viewAppt.SelectInsFunding();
-        browser.sleep(5000);
-        viewAppt.FundingOk.click();
-    });
+    //
+    //it('should allow the saving of funding changes - Insurance funding',function(){
+    //    console.log('Start  editing funding Insurance');
+    //    var EC = protractor.ExpectedConditions;
+    //    viewAppt.EditFunding.click();
+    //    browser.waitForAngular();
+    //    browser.wait( EC.visibilityOf(viewAppt.FundingHeader), 5000);
+    //    viewAppt.SelectInsFunding();
+    //    browser.sleep(5000);
+    //    viewAppt.FundingOk.click();
+    //});
 
 });
